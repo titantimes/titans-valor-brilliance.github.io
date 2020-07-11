@@ -41,6 +41,7 @@ async function getData() {
     }).then((text) => {
         return JSON.parse(text)
     })
+    document.querySelector("#load").textContent = "";
     return window.data
 }
 async function updateChart() {
