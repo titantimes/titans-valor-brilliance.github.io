@@ -39,13 +39,13 @@ async function getData() {
     .then((res) => {
         return res.text()
     }).then((text) => {
-        document.querySelector("#load").textContent = "";
         return JSON.parse(text)
     })
     return window.data
 }
 async function updateChart() {
     let data = await getData();
+    document.querySelector("#load").textContent = "";
     let columns = [...document.querySelector("#list").children].filter((e)=>e.children[0].checked).map((e)=>colors[e.textContent][1])
     graph.data.labels = data.values.slice(1).map((d) => d[0])
     graph.data.datasets = data.values[0].slice(1).map((lab) => ({
